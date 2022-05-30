@@ -98,12 +98,12 @@ contract Ballot {
      */
     function voteProposal(uint256 _proposalId, bool _voteInFavor) public nftOwner {
         require(_proposalId < proposals.length, "Ballot: proposal ID is nonexistant");
-        require(voters[_proposalId][msg.sender] == false, "Ballot: user has already voted on this proposal");
+        require(!voters[_proposalId][msg.sender], "Ballot: user has already voted on this proposal");
 
         Proposal memory proposal = proposals[_proposalId];
-        require(proposal.hasEnded == false, "Ballot: proposal has already been executed"); // change message
+        require(!proposal.hasEnded, "Ballot: proposal has already been executed"); // change message
 
-        if (_voteInFavor == true) {
+        if (_voteInFavor) {
             proposal.votingResult++;
         } else {
             proposal.votingResult--;
