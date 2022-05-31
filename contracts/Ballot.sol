@@ -99,7 +99,7 @@ contract Ballot {
         require(_proposalId < proposals.length, "Ballot: proposal ID is nonexistant");
         require(!voters[_proposalId][msg.sender], "Ballot: user has already voted on this proposal");
 
-        Proposal memory proposal = proposals[_proposalId];
+        Proposal storage proposal = proposals[_proposalId];
         require(!proposal.hasEnded, "Ballot: proposal has already been executed"); // change message
 
         if (_voteInFavor) {
@@ -117,7 +117,6 @@ contract Ballot {
             }
             proposal.hasEnded = true;
         }
-        proposals[_proposalId] = proposal;
         voters[_proposalId][msg.sender] = true;
         emit Vote(_proposalId, msg.sender, _voteInFavor);
     }
