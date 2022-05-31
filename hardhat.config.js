@@ -25,12 +25,10 @@ module.exports = {
   solidity: "0.8.4",
   defaultNetwork: "hardhat",
   networks: {
-    hardhat: {
-    },
-    rinkeby: {
-      url: RINKEBY_URL,
-      accounts: [PRIVATE_KEY]
-    }
+    // rinkeby: {
+    //   url: RINKEBY_URL,
+    //   accounts: [PRIVATE_KEY]
+    // }
   },
   etherscan: {
     apiKey: ETHERSCAN_API_KEY
