@@ -6,6 +6,12 @@ This is a Solidity project made using Hardhat for the [Daoism Systems Junior Sma
 
 Made using `node v16.14`.
 
+Install dependencies:
+
+```bash
+npm install
+```
+
 To test run:
 
 ```bash
